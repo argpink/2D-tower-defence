@@ -31,7 +31,7 @@ public class EnemySpawner : MonoBehaviour
     }
 
     private void Start(){
-        StartWave();}
+        StartCoroutine(StartWave());}
 
     private void Update()
     {
@@ -44,15 +44,25 @@ public class EnemySpawner : MonoBehaviour
             enemiesLeftToSpawn--;
             enemiesAlive++;
             timeSinceLastSpawn = 0f; }
+
+        if(enemiesAlive == 0 && enemiesLeftToSpawn == 0) {EndWave(); }
     }
 
     private void EnemyDestroyed() {
         enemiesAlive--;
     }
 
-    private void StartWave() {
+    private void EndWave()
+    { isSpawning = false;
+     timeSinceLastSpawn = 0f;
+     currentWave++; 
+     StartCoroutine(StartWave());}
+
+
+    private IEnumerator StartWave() {
+        yield return new WaitForSeconds(timeBetweenWaves);
         isSpawning = true;
-        enemiesLeftToSpawn = EnemiesPerWave(); }
+        enemiesLeftToSpawn = EnemiesPerWave();}
 
     private void SpawnEnemy() {
         GameObject prefabsToSpawn = enemyPrefabs[0];
