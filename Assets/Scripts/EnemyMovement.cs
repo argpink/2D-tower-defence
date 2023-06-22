@@ -14,30 +14,23 @@ public class EnemyMovement : MonoBehaviour
     private int pathIndex = 0; // Set to 0 at default but we use pathIndex
 
     private void Start()
-    {
-        target = LevelManager.main.path[pathIndex];
-    }
+    {target = LevelManager.main.path[pathIndex];}
+
     private void Update()
     {
-         if (Vector2.Distance(target.position, transform.position) <= 0.1f)
+        if (Vector2.Distance(target.position, transform.position) <= 0.1f)
+        { pathIndex++;}
+        if (pathIndex == LevelManager.main.path.Length)
         {
-            pathIndex++;
-        }
-        if (pathIndex == LevelManager.main.path.Length) 
-        {
+           EnemySpawner.onEnemyDestroy.Invoke();
             Destroy(gameObject);
-            return; 
-        }
+         return;}
 
         else
-        {
-            target = LevelManager.main.path[pathIndex]; // So there is no error for out of bounds. 
-        }
+        {target = LevelManager.main.path[pathIndex]; } // So there is no error for out of bounds.
     }
 
     private void FixedUpdate()
-    {
-        Vector2 direction = (target.position - transform.position).normalized;  
-        rb.velocity = direction * moveSpeed;
-    }
+    {Vector2 direction = (target.position - transform.position).normalized;  
+     rb.velocity = direction * moveSpeed;}
 }
