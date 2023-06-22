@@ -17,7 +17,7 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private float diffucultyScailingFactor = 0.75f;
 
     [Header("Events")]
-    public static UnityEvent onEnemyDestroy; 
+    public static UnityEvent onEnemyDestroy = new UnityEvent(); 
 
     private int currentWave = 1;
     private float timeSinceLastSpawn;
