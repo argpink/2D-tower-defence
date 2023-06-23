@@ -48,7 +48,10 @@ public class Turret : MonoBehaviour
     private void FindTarget()
     {
         {RaycastHit2D[] hits = Physics2D.CircleCastAll(transform.position, targetRange, (Vector2)transform.position, 0f, enemyMask); 
-        if (hits.Length > 0) { target = hits[0].transform; }
+        if (hits.Length > 0)
+            { 
+                target = hits[0].transform; 
+            }
         }
     }
 
@@ -56,9 +59,12 @@ public class Turret : MonoBehaviour
     { return Vector2.Distance(target.position, transform.position) <= targetRange; }
 
     private void RotateTowardsTarget()
-    {float angle = Mathf.Atan2(target.position.y - transform.position.y, target.position.x - transform.position.x) * Mathf.Rad2Deg - 90f;
-     Quaternion targetRotation = Quaternion.Euler(new Vector3(0f, 0f, angle));
-        turretRotationpoint.rotation = Quaternion.RotateTowards(turretRotationpoint.rotation, targetRotation, rotationSpeed * Time.deltaTime);}
+    {
+        float angle = Mathf.Atan2(target.position.y - transform.position.y, target.position.x - transform.position.x) * Mathf.Rad2Deg - 90f;
+    Quaternion targetRotation = Quaternion.Euler(new Vector3(0f, 0f, angle));
+        turretRotationpoint.rotation = Quaternion.RotateTowards(turretRotationpoint.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+    
+    }
 
     private void OnDrawGizmosSelected() {
         Handles.color = Color.cyan;
