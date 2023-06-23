@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 2739158961595455272}
   - component: {fileID: 7318088595832195487}
   - component: {fileID: 6102909146236805528}
-  m_Layer: 0
-  m_Name: Ememy
+  m_Layer: 6
+  m_Name: Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -100,9 +100,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: -2003861813
+  m_SortingLayer: 2
+  m_SortingOrder: 1
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
   m_Color: {r: 0.7924528, g: 0.09344961, b: 0.09344961, a: 1}
   m_FlipX: 0

@@ -3,7 +3,9 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Turrets
+  - Enemies
   layers:
   - Default
   - TransparentFX
@@ -11,7 +13,7 @@ TagManager:
   - 
   - Water
   - UI
-  - 
+  - Enemies
   - 
   - 
   - 
@@ -43,4 +45,7 @@ TagManager:
     locked: 0
   - name: Turrets
     uniqueID: 1
+    locked: 0
+  - name: Enemies
+    uniqueID: 2291105483
     locked: 0
