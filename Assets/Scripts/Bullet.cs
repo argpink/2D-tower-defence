@@ -6,7 +6,7 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
 
-    [Header("Referances")]
+    [Header("References")]
     [SerializeField] private Rigidbody2D rb;
 
     [Header("Attributes")]

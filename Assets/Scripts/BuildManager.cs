@@ -6,14 +6,18 @@ public class BuildManager : MonoBehaviour
 {
     public static BuildManager main;
 
-    [Header("Referances")]
-    [SerializeField] private GameObject[] towerPrefabs;
+    [Header("References")]
+    [SerializeField] private Tower[] towers;
     private int selectedTower = 0; 
 
 
     private void Awake()
     {main = this; }
 
-    public GameObject GetSelectedTower()
-    {return towerPrefabs[selectedTower];}
+    public Tower GetSelectedTower()
+    {return towers[selectedTower];}
+
+    public void SetSelectedTower(int _selectedTower)
+    {selectedTower = _selectedTower;}
+        
 }
